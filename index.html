@@ -40,13 +40,13 @@
             z-index: 1;
         }
 
-        .project-card, .publication-item, .experience-item, .award-item, .ongoing-item {
+        .anim-item {
             opacity: 0;
             transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
             transition-delay: var(--delay);
         }
-        .project-card.visible, .publication-item.visible, .experience-item.visible, .award-item.visible, .ongoing-item.visible {
+        .anim-item.visible {
             opacity: 1;
             transform: translateY(0);
         }
@@ -93,7 +93,7 @@
         <canvas id="bg-canvas"></canvas>
         <div class="hero-content container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-center gap-12 md:gap-24 text-center md:text-left">
             <div class="flex-shrink-0">
-                <img src="https://placehold.co/300x300/1F2937/F3F4F6?text=Suraj+K+C" alt="Your Photo" class="w-48 h-48 md:w-64 md:h-64 object-cover rounded-full shadow-lg border-4 border-gray-700 transition-transform duration-300 hover:scale-105">
+                <img src="images/myprofile-photo.png" onerror="this.src='https://placehold.co/300x300/1F2937/F3F4F6?text=Suraj+K+C'" alt="Suraj K C Photo" class="w-48 h-48 md:w-64 md:h-64 object-cover rounded-full shadow-lg border-4 border-gray-700 transition-transform duration-300 hover:scale-105">
             </div>
             <div class="space-y-4">
                 <h1 class="text-4xl md:text-5xl font-extrabold text-white leading-tight tracking-tight">
@@ -112,19 +112,19 @@
         <section id="education" class="space-y-8">
             <h2 class="text-3xl md:text-4xl font-bold text-center text-white">Education</h2>
             <div class="grid grid-cols-1 gap-8">
-                <div class="bg-gray-800 rounded-xl shadow-lg p-6 space-y-2 border border-gray-700">
+                <div class="anim-item bg-gray-800 rounded-xl shadow-lg p-6 space-y-2 border border-gray-700">
                     <h3 class="text-xl font-semibold text-white">PhD in Geography and Environment</h3>
                     <p class="text-gray-400">University of North Carolina at Chapel Hill, NC</p>
                     <p class="text-gray-500 text-sm">2025 - Current</p>
                 </div>
-                <div class="bg-gray-800 rounded-xl shadow-lg p-6 space-y-2 border border-gray-700">
+                <div class="anim-item bg-gray-800 rounded-xl shadow-lg p-6 space-y-2 border border-gray-700">
                     <h3 class="text-xl font-semibold text-white">M.S. in Environmental Studies</h3>
                     <p class="text-gray-400">Kentucky State University, Frankfort, Kentucky</p>
                     <p class="text-gray-500 text-sm">2021 - 2023</p>
                     <p class="text-gray-500 text-sm mt-2 font-medium">Master Thesis Project:</p>
                     <p class="text-gray-400 text-sm">Exploring Land Cover Change Trends, Patterns and Relationships in Eastern Kentucky (CGPA 4.00/4.00)</p>
                 </div>
-                <div class="bg-gray-800 rounded-xl shadow-lg p-6 space-y-2 border border-gray-700">
+                <div class="anim-item bg-gray-800 rounded-xl shadow-lg p-6 space-y-2 border border-gray-700">
                     <h3 class="text-xl font-semibold text-white">B.S. in Agriculture Science</h3>
                     <p class="text-gray-400">Agriculture and Forestry University, Chitwan, Nepal</p>
                     <p class="text-gray-500 text-sm">2019</p>
@@ -139,7 +139,7 @@
             <h2 class="text-3xl md:text-4xl font-bold text-center text-white">Professional Experience</h2>
             <div class="space-y-8">
                 <!-- Research Associate - KSU -->
-                <div class="experience-item bg-gray-800 rounded-xl shadow-lg p-6 space-y-4 border border-gray-700">
+                <div class="anim-item bg-gray-800 rounded-xl shadow-lg p-6 space-y-4 border border-gray-700">
                     <h3 class="text-xl font-semibold text-white">Research Associate</h3>
                     <p class="text-gray-400">Kentucky State University, Frankfort, KY</p>
                     <p class="text-gray-500 text-sm">Aug 2023 – Dec 2024</p>
@@ -150,7 +150,7 @@
                     </ul>
                 </div>
                 <!-- Graduate Research Assistant - KSU -->
-                <div class="experience-item bg-gray-800 rounded-xl shadow-lg p-6 space-y-4 border border-gray-700">
+                <div class="anim-item bg-gray-800 rounded-xl shadow-lg p-6 space-y-4 border border-gray-700">
                     <h3 class="text-xl font-semibold text-white">Graduate Research Assistant</h3>
                     <p class="text-gray-400">Kentucky State University, Frankfort, KY</p>
                     <p class="text-gray-500 text-sm">Aug 2021 - July 2023</p>
@@ -160,7 +160,7 @@
                     </ul>
                 </div>
                 <!-- Field Supervisor - Univ. of Florida -->
-                <div class="experience-item bg-gray-800 rounded-xl shadow-lg p-6 space-y-4 border border-gray-700">
+                <div class="anim-item bg-gray-800 rounded-xl shadow-lg p-6 space-y-4 border border-gray-700">
                     <h3 class="text-xl font-semibold text-white">Field Supervisor</h3>
                     <p class="text-gray-400">Advancing Women's Participation in Livestock Vaccine Value Chains</p>
                     <p class="text-gray-500 text-sm">Feb 2020 - Dec 2020</p>
@@ -177,7 +177,7 @@
             <h2 class="text-3xl md:text-4xl font-bold text-center text-white">Ongoing Work</h2>
             <div class="space-y-8">
                 <!-- Ongoing Research Assistant - UNC -->
-                <div class="ongoing-item bg-gray-800 rounded-xl shadow-lg p-6 space-y-4 border border-gray-700">
+                <div class="anim-item bg-gray-800 rounded-xl shadow-lg p-6 space-y-4 border border-gray-700">
                     <h3 class="text-xl font-semibold text-white">Graduate Research Assistant</h3>
                     <p class="text-gray-400">The University of North Carolina at Chapel Hill</p>
                     <p class="text-gray-500 text-sm">Jan 2025 - Current</p>
@@ -190,7 +190,7 @@
                     </ul>
                 </div>
                 <!-- Ongoing Publication -->
-                <div class="ongoing-item bg-gray-800 rounded-xl shadow-lg p-6 space-y-4 border border-gray-700">
+                <div class="anim-item bg-gray-800 rounded-xl shadow-lg p-6 space-y-4 border border-gray-700">
                     <h3 class="text-xl font-semibold text-white">Monitoring industrial hemp growth dynamics</h3>
                     <p class="text-gray-400 text-sm">
                         K C, S.; Sandhu, S.S.; Johns, F.; Sandhu, H.; Chiluwal, A. Monitoring industrial hemp growth dynamics integrating manual and UAV-based aerial phenotyping. Smart Agricultural Technology (under review), Elsevier.
@@ -203,25 +203,25 @@
         <section id="projects" class="space-y-8">
             <h2 class="text-3xl md:text-4xl font-bold text-center text-white">Refereed Publications</h2>
             <div class="space-y-4">
-                <div class="publication-item bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
+                <div class="anim-item publication-item bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
                     <p class="text-gray-400 text-sm">
                         K C, S.; Gyawali, B.R.; Lucas, S.; Antonious, G.F.; Chiluwal, A.; Zourarakis, D. Assessing Land-Cover Change Trends, Patterns, and Transitions in Coalfield Counties of Eastern Kentucky, USA. Land 2024, 13, 1541.
                         <a href="https://doi.org/10.3390/land1309154" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">DOI</a>
                     </p>
                 </div>
-                <div class="publication-item bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
+                <div class="anim-item publication-item bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
                     <p class="text-gray-400 text-sm">
                         K C, S.; Chiluwal, A.; Magar, L.P.; Paudel, K. Mitigating Urban Heat Islands in Miami, Florida; Utilizing Planet and Landsat Satellite Data. MDPI Atmosphere.
                         <a href="https://doi.org/10.3390/atmos16070880" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">DOI</a>
                     </p>
                 </div>
-                <div class="publication-item bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
+                <div class="anim-item publication-item bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
                     <p class="text-gray-400 text-sm">
                         Poudel, S., Khatri, D., Magar, L.P., K C, S., Mukherjee, A., Lucas, S., Gebermedhin, M., & Chiluwal, A. (2024). Final Seed Size in Soybean Is Determined during Mid- Seed Filling Stage. Agronomy,14 (4):763.
                         <a href="https://doi.org/10.3390/agronomy14040763" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">DOI</a>
                     </p>
                 </div>
-                <div class="publication-item bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
+                <div class="anim-item publication-item bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
                     <p class="text-gray-400 text-sm">
                         Magar, L.P.; Sandifer, J.; Khatri, D.; Poudel, S.; K C, S.; Gyawali, B.; Gebremedhin, M.; Chiluwal, A. Plant height measurement using UAV-based aerial RGB and LiDAR images in soybean. Front. Plant Sci., Technical Advances in Plant Science.
                         <a href="https://doi.org/10.3389/fpls.2025.1488760" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">DOI</a>
@@ -231,32 +231,32 @@
             
             <h2 class="text-3xl md:text-4xl font-bold text-center text-white mt-16">Conference Presentations & Research Projects</h2>
             <div class="space-y-4">
-                 <div class="publication-item bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
+                 <div class="anim-item publication-item bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
                     <p class="text-gray-400 text-sm">
                         K C, S., Chiluwal, A. (2024). Integrating manual and multi-source spatial data for monitoring industrial hemp growth dynamics and plant health (Oral presentation). 2024 ASA-CSA-SSSA International Annual Meeting.
                     </p>
                 </div>
-                <div class="publication-item bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
+                <div class="anim-item publication-item bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
                     <p class="text-gray-400 text-sm">
                         K C, S., Chiluwal, A. (2024). Integrating manual and multi-source spatial data for monitoring industrial hemp growth dynamics and plant health (Oral presentation). Association of American Geographers Annual Meeting (AAG) 2024.
                     </p>
                 </div>
-                 <div class="publication-item bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
+                 <div class="anim-item publication-item bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
                     <p class="text-gray-400 text-sm">
                         K C, S., Chiluwal, A., Magar, L.P., & Paudel, K. (2024). Mitigating Urban Heat Islands in Miami Florida; Utilizing Sentinel Satellite based approach (Oral presentation). The Association of 1890 Research Directors (ARD) Symposium 2024.
                     </p>
                 </div>
-                 <div class="publication-item bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
+                 <div class="anim-item publication-item bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
                     <p class="text-gray-400 text-sm">
                         Paudel, K., K C, S., & Gyawali, B. (2023). Mapping the Khumbu Glacier, Nepal from 2001 to 2022 (Oral presentation). 2023 ESRI user conference.
                     </p>
                 </div>
-                 <div class="publication-item bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
+                 <div class="anim-item publication-item bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
                     <p class="text-gray-400 text-sm">
                         K C, S., & Gyawali, B. (2023). Assessing landscape changes in eastern Kentucky (Oral presentation). 2023 Esri user conference.
                     </p>
                 </div>
-                 <div class="publication-item bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
+                 <div class="anim-item publication-item bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
                     <p class="text-gray-400 text-sm">
                         K C, S., & Gyawali, B. (2023). Assessing surface coal mining driven landscape changes using supervised machine learning algorithm in eastern Kentucky (Oral presentation). 2023 American Society for Photogrammetry and Remote Sensing (ASPRS) annual conference at Geo week.
                     </p>
@@ -268,15 +268,15 @@
         <section id="skills" class="space-y-8">
             <h2 class="text-3xl md:text-4xl font-bold text-center text-white">Skills</h2>
             <div class="flex flex-wrap justify-center gap-4">
-                <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">R Programming (Intermediate)</span>
-                <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">Python Programming (Intermediate)</span>
-                <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">ESRI Products (ArcGIS Pro, ArcGIS Online)</span>
-                <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">Google Earth Engine</span>
-                <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">UAV/Drone Data Analysis</span>
-                <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">Remote Sensing</span>
-                <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">GIS (QGIS)</span>
-                <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">Data Management & Spatial Analysis</span>
-                <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">Statistical Analysis (SPSS, STATA)</span>
+                <span class="anim-item bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">R Programming (Intermediate)</span>
+                <span class="anim-item bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">Python Programming (Intermediate)</span>
+                <span class="anim-item bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">ESRI Products (ArcGIS Pro, ArcGIS Online)</span>
+                <span class="anim-item bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">Google Earth Engine</span>
+                <span class="anim-item bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">UAV/Drone Data Analysis</span>
+                <span class="anim-item bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">Remote Sensing</span>
+                <span class="anim-item bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">GIS (QGIS)</span>
+                <span class="anim-item bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">Data Management & Spatial Analysis</span>
+                <span class="anim-item bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">Statistical Analysis (SPSS, STATA)</span>
             </div>
         </section>
 
@@ -285,35 +285,35 @@
             <h2 class="text-3xl md:text-4xl font-bold text-center text-white">Awards & Licenses</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Award 1 -->
-                <div class="award-item bg-gray-800 rounded-xl shadow-lg p-6 space-y-4 border border-gray-700">
+                <div class="anim-item award-item bg-gray-800 rounded-xl shadow-lg p-6 space-y-4 border border-gray-700">
                     <h3 class="text-xl font-semibold text-white">Outstanding MES Graduate Student Award</h3>
                     <p class="text-sm text-gray-400">
                         Awarded by Kentucky State University in April 2023.
                     </p>
                 </div>
                 <!-- Award 2 -->
-                <div class="award-item bg-gray-800 rounded-xl shadow-lg p-6 space-y-4 border border-gray-700">
+                <div class="anim-item award-item bg-gray-800 rounded-xl shadow-lg p-6 space-y-4 border border-gray-700">
                     <h3 class="text-xl font-semibold text-white">Student Oral Competition - Second Place</h3>
                     <p class="text-sm text-gray-400">
                         Awarded at the 3rd Biennial International Scientific Conference by NAPA (2022).
                     </p>
                 </div>
                 <!-- Award 3 -->
-                <div class="award-item bg-gray-800 rounded-xl shadow-lg p-6 space-y-4 border border-gray-700">
+                <div class="anim-item award-item bg-gray-800 rounded-xl shadow-lg p-6 space-y-4 border border-gray-700">
                     <h3 class="text-xl font-semibold text-white">KAMP Scholarship Award</h3>
                     <p class="text-sm text-gray-400">
                         Received the Kentucky Association of Mapping Professionals Scholarship Award (2022).
                     </p>
                 </div>
                 <!-- Award 4 -->
-                <div class="award-item bg-gray-800 rounded-xl shadow-lg p-6 space-y-4 border border-gray-700">
+                <div class="anim-item award-item bg-gray-800 rounded-xl shadow-lg p-6 space-y-4 border border-gray-700">
                     <h3 class="text-xl font-semibold text-white">Third Position in National Level Soil Quiz</h3>
                     <p class="text-sm text-gray-400">
                         Organized by the National Society of Soil Science (2018 & 2019).
                     </p>
                 </div>
                 <!-- License 1 -->
-                <div class="award-item bg-gray-800 rounded-xl shadow-lg p-6 space-y-4 border border-gray-700">
+                <div class="anim-item award-item bg-gray-800 rounded-xl shadow-lg p-6 space-y-4 border border-gray-700">
                     <h3 class="text-xl font-semibold text-white">FAA SUAS Remote Pilot Certification</h3>
                     <p class="text-sm text-gray-400">
                         Federal Aviation Administration (2024).
@@ -326,12 +326,12 @@
         <section id="societies" class="space-y-8">
             <h2 class="text-3xl md:text-4xl font-bold text-center text-white">Professional Societies</h2>
             <div class="flex flex-wrap justify-center gap-4">
-                <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">American Society of Photogrammetry and Remote Sensing (ASPRS)</span>
-                <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">American Association of Geographers (AAG)</span>
-                <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">Association of Nepalese Agricultural professionals of Americas (NAPA)</span>
-                <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">Kentucky Academy of Science (KAS)</span>
-                <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">Southern Rural Sociological Association (SRSA)</span>
-                <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">Kentucky Association of Mapping Professionals (KAMP)</span>
+                <span class="anim-item bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">American Society of Photogrammetry and Remote Sensing (ASPRS)</span>
+                <span class="anim-item bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">American Association of Geographers (AAG)</span>
+                <span class="anim-item bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">Association of Nepalese Agricultural professionals of Americas (NAPA)</span>
+                <span class="anim-item bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">Kentucky Academy of Science (KAS)</span>
+                <span class="anim-item bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">Southern Rural Sociological Association (SRSA)</span>
+                <span class="anim-item bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">Kentucky Association of Mapping Professionals (KAMP)</span>
             </div>
         </section>
 
@@ -468,7 +468,7 @@
             threshold: 0.1
         });
 
-        const animatableItems = document.querySelectorAll('.publication-item, .experience-item, .award-item, .ongoing-item');
+        const animatableItems = document.querySelectorAll('.anim-item');
         animatableItems.forEach((item, index) => {
             item.style.setProperty('--delay', `${index * 0.1}s`);
             observer.observe(item);
