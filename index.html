@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suraj K C | Geospatial Professional</title>
+    <!-- Load Tailwind CSS from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Three.js for 3D background -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            @apply bg-gray-950 text-gray-200 overflow-x-hidden;
+        }
+
+        .hero-section {
+            position: relative;
+            overflow: hidden;
+            @apply bg-gray-950;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        canvas#bg-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            z-index: 1;
+        }
+
+        .project-card, .publication-item, .experience-item, .award-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            transition-delay: var(--delay);
+        }
+        .project-card.visible, .publication-item.visible, .experience-item.visible, .award-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #message-box {
+            @apply fixed bottom-4 right-4 z-[100] p-4 rounded-lg shadow-lg text-white transition-opacity duration-300;
+            background-color: #4a90e2; /* Blue-400 equivalent */
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="bg-gray-950/50 backdrop-blur-md sticky top-0 z-50 py-4 px-6 md:px-12 rounded-b-xl border-b border-gray-800">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-xl font-bold tracking-tight text-white">Suraj K C</a>
+            <div class="space-x-4 hidden md:flex">
+                <a href="#about" class="text-sm font-medium hover:text-white transition-colors duration-200">About</a>
+                <a href="#education" class="text-sm font-medium hover:text-white transition-colors duration-200">Education</a>
+                <a href="#experience" class="text-sm font-medium hover:text-white transition-colors duration-200">Experience</a>
+                <a href="#projects" class="text-sm font-medium hover:text-white transition-colors duration-200">Publications</a>
+                <a href="#awards" class="text-sm font-medium hover:text-white transition-colors duration-200">Awards</a>
+                <a href="#contact" class="text-sm font-medium hover:text-white transition-colors duration-200">Contact</a>
+            </div>
+            <!-- Simple mobile menu placeholder -->
+            <button class="md:hidden text-gray-400 hover:text-white transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero / About Me Section with 3D background -->
+    <section class="hero-section py-24 md:py-32">
+        <canvas id="bg-canvas"></canvas>
+        <div class="hero-content container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-center gap-12 md:gap-24 text-center md:text-left">
+            <div class="flex-shrink-0">
+                <img src="https://placehold.co/300x300/1F2937/F3F4F6?text=Suraj+K+C" alt="Your Photo" class="w-48 h-48 md:w-64 md:h-64 object-cover rounded-full shadow-lg border-4 border-gray-700 transition-transform duration-300 hover:scale-105">
+            </div>
+            <div class="space-y-4">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-white leading-tight tracking-tight">
+                    Hello, I'm <span class="text-blue-400">Suraj K C</span>
+                </h1>
+                <p class="text-lg text-gray-400 max-w-2xl mx-auto md:mx-0">
+                    I am a PhD student in Geography and Environment at the University of North Carolina at Chapel Hill. My research focuses on spatial data analysis, remote sensing, and environmental monitoring. I specialize in leveraging technology to address complex environmental challenges and contribute to sustainable resource management.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <main class="container mx-auto px-6 md:px-12 py-16 md:py-24 space-y-20">
+
+        <!-- Education Section -->
+        <section id="education" class="space-y-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-white">Education</h2>
+            <div class="grid grid-cols-1 gap-8">
+                <div class="bg-gray-800 rounded-xl shadow-lg p-6 space-y-2 border border-gray-700">
+                    <h3 class="text-xl font-semibold text-white">PhD in Geography and Environment</h3>
+                    <p class="text-gray-400">University of North Carolina at Chapel Hill, NC</p>
+                    <p class="text-gray-500 text-sm">2025 - Current</p>
+                </div>
+                <div class="bg-gray-800 rounded-xl shadow-lg p-6 space-y-2 border border-gray-700">
+                    <h3 class="text-xl font-semibold text-white">M.S. in Environmental Studies</h3>
+                    <p class="text-gray-400">Kentucky State University, Frankfort, Kentucky</p>
+                    <p class="text-gray-500 text-sm">2021 - 2023</p>
+                    <p class="text-gray-500 text-sm mt-2 font-medium">Master Thesis Project:</p>
+                    <p class="text-gray-400 text-sm">Exploring Land Cover Change Trends, Patterns and Relationships in Eastern Kentucky (CGPA 4.00/4.00)</p>
+                </div>
+                <div class="bg-gray-800 rounded-xl shadow-lg p-6 space-y-2 border border-gray-700">
+                    <h3 class="text-xl font-semibold text-white">B.S. in Agriculture Science</h3>
+                    <p class="text-gray-400">Agriculture and Forestry University, Chitwan, Nepal</p>
+                    <p class="text-gray-500 text-sm">2019</p>
+                    <p class="text-gray-500 text-sm mt-2 font-medium">Bachelor Thesis Project:</p>
+                    <p class="text-gray-400 text-sm">Effect of Foliar Spray of Boron and Zinc on Performance of Cucumber (Cucumis Sativus L.) Cv. Bhaktapur Local Under Net House in Kaski, Nepal (CGPA 3.66/4.00)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Experience Section -->
+        <section id="experience" class="space-y-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-white">Professional Experience</h2>
+            <div class="space-y-8">
+                <!-- Graduate Research Assistant - UNC -->
+                <div class="experience-item bg-gray-800 rounded-xl shadow-lg p-6 space-y-4 border border-gray-700">
+                    <h3 class="text-xl font-semibold text-white">Graduate Research Assistant</h3>
+                    <p class="text-gray-400">The University of North Carolina at Chapel Hill</p>
+                    <p class="text-gray-500 text-sm">Jan 2025 - Current</p>
+                    <ul class="list-disc list-inside text-gray-400 text-sm space-y-2">
+                        <li>Conduct data collection and analysis for research projects in geography and environmental studies, including spatial data analysis using GIS tools (e.g., ArcGIS, QGIS).</li>
+                        <li>Assist in the design and implementation of fieldwork protocols and environmental monitoring methods.</li>
+                        <li>Collaborate with faculty and graduate students on the preparation and submission of research papers and presentations.</li>
+                        <li>Manage and process large datasets, performing statistical analysis and interpreting results for research projects related to environmental change, urban planning, or natural resource management.</li>
+                        <li>Utilized remote sensing technologies (e.g., satellite imagery, LIDAR and drone images) to assess environmental impacts and land use changes, biomass monitoring and carbon sequestration.</li>
+                    </ul>
+                </div>
+                <!-- Research Associate - KSU -->
+                <div class="experience-item bg-gray-800 rounded-xl shadow-lg p-6 space-y-4 border border-gray-700">
+                    <h3 class="text-xl font-semibold text-white">Research Associate</h3>
+                    <p class="text-gray-400">Kentucky State University, Frankfort, KY</p>
+                    <p class="text-gray-500 text-sm">Aug 2023 – Dec 2024</p>
+                    <ul class="list-disc list-inside text-gray-400 text-sm space-y-2">
+                        <li>Actively engaged in agronomy research using drone data, satellite imagery and remotely sensed data.</li>
+                        <li>Mentored graduate students for building and excelling thesis research, data collection, entry, analysis, reporting and reviewing manuscripts.</li>
+                        <li>Presented research findings at conferences, seminars and workshops as well as disseminating research outcomes to the academic communities.</li>
+                    </ul>
+                </div>
+                <!-- Graduate Research Assistant - KSU -->
+                <div class="experience-item bg-gray-800 rounded-xl shadow-lg p-6 space-y-4 border border-gray-700">
+                    <h3 class="text-xl font-semibold text-white">Graduate Research Assistant</h3>
+                    <p class="text-gray-400">Kentucky State University, Frankfort, KY</p>
+                    <p class="text-gray-500 text-sm">Aug 2021 - July 2023</p>
+                    <ul class="list-disc list-inside text-gray-400 text-sm space-y-2">
+                        <li>Mentored undergraduate students for using GIS tools and remotely sensed data.</li>
+                        <li>Actively led in environment-social interaction surveys, data collection, data entry, analysis, report writing, presentation, preparing and reviewing manuscripts.</li>
+                    </ul>
+                </div>
+                <!-- Field Supervisor - Univ. of Florida -->
+                <div class="experience-item bg-gray-800 rounded-xl shadow-lg p-6 space-y-4 border border-gray-700">
+                    <h3 class="text-xl font-semibold text-white">Field Supervisor</h3>
+                    <p class="text-gray-400">Advancing Women's Participation in Livestock Vaccine Value Chains</p>
+                    <p class="text-gray-500 text-sm">Feb 2020 - Dec 2020</p>
+                    <ul class="list-disc list-inside text-gray-400 text-sm space-y-2">
+                        <li>Conducted field visits and collected feedback from farmers about Livestock vaccines, their impact and improvisation in farm income.</li>
+                        <li>Report writing, dissemination of progress to the executive board.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section id="projects" class="space-y-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-white">Refereed Publications</h2>
+            <div class="space-y-4">
+                <div class="publication-item bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
+                    <p class="text-gray-400 text-sm">
+                        K C, S.; Gyawali, B.R.; Lucas, S.; Antonious, G.F.; Chiluwal, A.; Zourarakis, D. Assessing Land-Cover Change Trends, Patterns, and Transitions in Coalfield Counties of Eastern Kentucky, USA. Land 2024, 13, 1541.
+                        <a href="https://doi.org/10.3390/land1309154" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">DOI</a>
+                    </p>
+                </div>
+                <div class="publication-item bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
+                    <p class="text-gray-400 text-sm">
+                        K C, S.; Chiluwal, A.; Magar, L.P.; Paudel, K. Mitigating Urban Heat Islands in Miami, Florida; Utilizing Planet and Landsat Satellite Data. MDPI Atmosphere.
+                        <a href="https://doi.org/10.3390/atmos16070880" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">DOI</a>
+                    </p>
+                </div>
+                <div class="publication-item bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
+                    <p class="text-gray-400 text-sm">
+                        Poudel, S., Khatri, D., Magar, L.P., K C, S., Mukherjee, A., Lucas, S., Gebermedhin, M., & Chiluwal, A. (2024). Final Seed Size in Soybean Is Determined during Mid- Seed Filling Stage. Agronomy,14 (4):763.
+                        <a href="https://doi.org/10.3390/agronomy14040763" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">DOI</a>
+                    </p>
+                </div>
+                <div class="publication-item bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
+                    <p class="text-gray-400 text-sm">
+                        Magar, L.P.; Sandifer, J.; Khatri, D.; Poudel, S.; K C, S.; Gyawali, B.; Gebremedhin, M.; Chiluwal, A. Plant height measurement using UAV-based aerial RGB and LiDAR images in soybean. Front. Plant Sci., Technical Advances in Plant Science.
+                        <a href="https://doi.org/10.3389/fpls.2025.1488760" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">DOI</a>
+                    </p>
+                </div>
+                <div class="publication-item bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
+                    <p class="text-gray-400 text-sm">
+                        K C, S.; Sandhu, S.S.; Johns, F.; Sandhu, H.; Chiluwal, A. Monitoring industrial hemp growth dynamics integrating manual and UAV-based aerial phenotyping. Smart Agricultural Technology (under review), Elsevier.
+                    </p>
+                </div>
+            </div>
+            
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-white mt-16">Conference Presentations & Research Projects</h2>
+            <div class="space-y-4">
+                 <div class="publication-item bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
+                    <p class="text-gray-400 text-sm">
+                        K C, S., Chiluwal, A. (2024). Integrating manual and multi-source spatial data for monitoring industrial hemp growth dynamics and plant health (Oral presentation). 2024 ASA-CSA-SSSA International Annual Meeting.
+                    </p>
+                </div>
+                <div class="publication-item bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
+                    <p class="text-gray-400 text-sm">
+                        K C, S., Chiluwal, A. (2024). Integrating manual and multi-source spatial data for monitoring industrial hemp growth dynamics and plant health (Oral presentation). Association of American Geographers Annual Meeting (AAG) 2024.
+                    </p>
+                </div>
+                 <div class="publication-item bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
+                    <p class="text-gray-400 text-sm">
+                        K C, S., Chiluwal, A., Magar, L.P., & Paudel, K. (2024). Mitigating Urban Heat Islands in Miami Florida; Utilizing Sentinel Satellite based approach (Oral presentation). The Association of 1890 Research Directors (ARD) Symposium 2024.
+                    </p>
+                </div>
+                 <div class="publication-item bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
+                    <p class="text-gray-400 text-sm">
+                        Paudel, K., K C, S., & Gyawali, B. (2023). Mapping the Khumbu Glacier, Nepal from 2001 to 2022 (Oral presentation). 2023 ESRI user conference.
+                    </p>
+                </div>
+                 <div class="publication-item bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
+                    <p class="text-gray-400 text-sm">
+                        K C, S., & Gyawali, B. (2023). Assessing landscape changes in eastern Kentucky (Oral presentation). 2023 Esri user conference.
+                    </p>
+                </div>
+                 <div class="publication-item bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
+                    <p class="text-gray-400 text-sm">
+                        K C, S., & Gyawali, B. (2023). Assessing surface coal mining driven landscape changes using supervised machine learning algorithm in eastern Kentucky (Oral presentation). 2023 American Society for Photogrammetry and Remote Sensing (ASPRS) annual conference at Geo week.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="space-y-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-white">Skills</h2>
+            <div class="flex flex-wrap justify-center gap-4">
+                <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">R Programming (Intermediate)</span>
+                <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">Python Programming (Intermediate)</span>
+                <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">ESRI Products (ArcGIS Pro, ArcGIS Online)</span>
+                <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">Google Earth Engine</span>
+                <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">UAV/Drone Data Analysis</span>
+                <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">Remote Sensing</span>
+                <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">GIS (QGIS)</span>
+                <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">Data Management & Spatial Analysis</span>
+                <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">Statistical Analysis (SPSS, STATA)</span>
+            </div>
+        </section>
+
+        <!-- Awards Section -->
+        <section id="awards" class="space-y-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-white">Awards & Licenses</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Award 1 -->
+                <div class="award-item bg-gray-800 rounded-xl shadow-lg p-6 space-y-4 border border-gray-700">
+                    <h3 class="text-xl font-semibold text-white">Outstanding MES Graduate Student Award</h3>
+                    <p class="text-sm text-gray-400">
+                        Awarded by Kentucky State University in April 2023.
+                    </p>
+                </div>
+                <!-- Award 2 -->
+                <div class="award-item bg-gray-800 rounded-xl shadow-lg p-6 space-y-4 border border-gray-700">
+                    <h3 class="text-xl font-semibold text-white">Student Oral Competition - Second Place</h3>
+                    <p class="text-sm text-gray-400">
+                        Awarded at the 3rd Biennial International Scientific Conference by NAPA (2022).
+                    </p>
+                </div>
+                <!-- Award 3 -->
+                <div class="award-item bg-gray-800 rounded-xl shadow-lg p-6 space-y-4 border border-gray-700">
+                    <h3 class="text-xl font-semibold text-white">KAMP Scholarship Award</h3>
+                    <p class="text-sm text-gray-400">
+                        Received the Kentucky Association of Mapping Professionals Scholarship Award (2022).
+                    </p>
+                </div>
+                <!-- Award 4 -->
+                <div class="award-item bg-gray-800 rounded-xl shadow-lg p-6 space-y-4 border border-gray-700">
+                    <h3 class="text-xl font-semibold text-white">Third Position in National Level Soil Quiz</h3>
+                    <p class="text-sm text-gray-400">
+                        Organized by the National Society of Soil Science (2018 & 2019).
+                    </p>
+                </div>
+                <!-- License 1 -->
+                <div class="award-item bg-gray-800 rounded-xl shadow-lg p-6 space-y-4 border border-gray-700">
+                    <h3 class="text-xl font-semibold text-white">FAA SUAS Remote Pilot Certification</h3>
+                    <p class="text-sm text-gray-400">
+                        Federal Aviation Administration (2024).
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Societies Section -->
+        <section id="societies" class="space-y-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-white">Professional Societies</h2>
+            <div class="flex flex-wrap justify-center gap-4">
+                <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">American Society of Photogrammetry and Remote Sensing (ASPRS)</span>
+                <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">American Association of Geographers (AAG)</span>
+                <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">Association of Nepalese Agricultural professionals of Americas (NAPA)</span>
+                <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">Kentucky Academy of Science (KAS)</span>
+                <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">Southern Rural Sociological Association (SRSA)</span>
+                <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm font-medium border border-gray-700">Kentucky Association of Mapping Professionals (KAMP)</span>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="text-center space-y-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-white">Get In Touch</h2>
+            <p class="text-gray-400 max-w-xl mx-auto">
+                Feel free to connect with me on social media or send an email. I'm always open to discussing new projects, creative ideas, or just talking about research.
+            </p>
+            <div class="flex justify-center items-center space-x-6">
+                <!-- Email link -->
+                <a href="mailto:surajkc2018@gmail.com" class="text-gray-400 hover:text-blue-400 transition-colors duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
+                        <path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.54 5.694a3 3 0 0 1-2.92 0L1.5 8.67Z" />
+                        <path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.76 6.507a3 3 0 0 0 2.92 0L22.5 6.908Z" />
+                    </svg>
+                </a>
+                <!-- GitHub link (placeholder, replace with your actual link) -->
+                <a href="https://github.com/your-username" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-400 transition-colors duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-8 h-8">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.
